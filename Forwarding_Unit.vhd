@@ -80,6 +80,7 @@ begin
                     
                     forwardA <= "00";
                     forwardB <= "11";
+                    
                 end if;
             end if;
        

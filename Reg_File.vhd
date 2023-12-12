@@ -21,16 +21,16 @@ architecture arch_Reg_File of Reg_File is
     signal registers : Mem := (others => (others => '0'));          --registers is a Mem
 
 begin
-    process(clk, writeReg, sourceReg1, sourceReg2, destinyReg, data, registers)
+    process( clk, writeReg, sourceReg1, sourceReg2, destinyReg, data, registers )
     begin
-        if falling_edge(clk) then
-            if writeReg = '1' and destinyReg /= "00000" then
-                registers(conv_integer(destinyReg)) <= data;
+        if rising_edge(clk) then               
+            if writeReg = '1' and destinyReg /= "00000" then         --check for write register and destiny diff from address zero
+                registers(conv_integer(destinyReg)) <= data;       --write data to destiny register
             end if;
-        end if;
-    end process;
-    
-            readData1 <= registers(conv_integer(sourceReg1)) when sourceReg1 /= "00000" else (others => '0');
-            readData2 <= registers(conv_integer(sourceReg2)) when sourceReg2 /= "00000" else (others => '0');
-            
+        end if ;
+    end process ;
+
+    readData1 <= registers(conv_integer(sourceReg1)) when sourceReg1 /= "00000" else (others => '0');   --asynchronic read from rs1
+    readData2 <= registers(conv_integer(sourceReg2)) when sourceReg2 /= "00000" else (others => '0');   --asynchronic read from rs2
+
 end arch_Reg_File ; -- arch_Reg_File

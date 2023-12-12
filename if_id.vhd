@@ -5,11 +5,9 @@ entity if_id is
     port (
 		instruction_if_in   :in std_logic_vector(31 downto 0);
 		PC_if_in			:in std_logic_vector(31 downto 0);
-		
         clk					:in std_logic;
 		rst					:in std_logic;
 		enable				:in std_logic;
-		
         instruction_id_out  :out std_logic_vector(31 downto 0);
 		PC_id_out			:out std_logic_vector(31 downto 0) 
     );
