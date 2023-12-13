@@ -11,6 +11,7 @@ entity PC is
         PCIn    : in std_logic_vector(31 downto 0);
         clk     : in std_logic;
         rst     : in std_logic;
+        enable  : in std_logic;
         PCOut   : out std_logic_vector(31 downto 0)
     );
 end entity PC;
@@ -18,13 +19,13 @@ end entity PC;
 architecture arch_PC of PC is
 
 begin
-    process( clk, rst)
-    begin
-        if rst = '0' then
-            PCOut <= (others => '0');
-        else
-            if rising_edge(clk) then        
-                    PCOut <= PCIn;          --register operation
+    process(clk)
+    begin 
+        if rising_edge(clk) then   
+            if rst = '0' then
+                PCOut <= (others => '0'); 
+            elsif enable = '1' then    
+                PCOut <= PCIn;          
             end if;
         end if;
     end process ;

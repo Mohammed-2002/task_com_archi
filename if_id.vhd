@@ -5,9 +5,11 @@ entity if_id is
     port (
 		instruction_if_in   :in std_logic_vector(31 downto 0);
 		PC_if_in			:in std_logic_vector(31 downto 0);
+		
         clk					:in std_logic;
 		rst					:in std_logic;
 		enable				:in std_logic;
+		
         instruction_id_out  :out std_logic_vector(31 downto 0);
 		PC_id_out			:out std_logic_vector(31 downto 0) 
     );
@@ -18,9 +20,9 @@ begin
 	process(clk)
 	begin
 		if rising_edge(clk) then 	
-			if rst = '0' then
-            			PC_id_out <=  X"00000000"; 
-				instruction_id_out <= X"00000000"; 
+			     if rst = '0' then
+                            PC_id_out <=  X"00000000"; 
+                    instruction_id_out <= X"00000000"; 
         		else
 				if enable = '1' then	
 					--PC value is required in next stage
