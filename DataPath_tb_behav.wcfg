@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="84.610 ns"></ZoomStartTime>
-      <ZoomEndTime time="308.411 ns"></ZoomEndTime>
-      <Cursor1Time time="271.110 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="227.401 ns"></ZoomEndTime>
+      <Cursor1Time time="16,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="237"></NameColumnWidth>
-      <ValueColumnWidth column_width="109"></ValueColumnWidth>
+      <ValueColumnWidth column_width="91"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="15" />
+   <WVObjectSize size="21" />
    <wvobject fp_name="/DataPath_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -31,54 +31,76 @@
       <obj_property name="ElementShortName">clk_period</obj_property>
       <obj_property name="ObjectShortName">clk_period</obj_property>
    </wvobject>
-   <wvobject fp_name="/DataPath_tb/DUT/result" type="array">
-      <obj_property name="ElementShortName">result[31:0]</obj_property>
-      <obj_property name="ObjectShortName">result[31:0]</obj_property>
+   <wvobject fp_name="/DataPath_tb/DUT/PC_IF" type="array">
+      <obj_property name="ElementShortName">PC_IF[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_IF[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/DataPath_tb/DUT/IF_ID_stage/PC_if_in" type="array">
-      <obj_property name="ElementShortName">PC_if_in[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_if_in[31:0]</obj_property>
+   <wvobject fp_name="/DataPath_tb/DUT/PC_ID" type="array">
+      <obj_property name="ElementShortName">PC_ID[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_ID[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/DataPath_tb/DUT/IF_ID_stage/PC_id_out" type="array">
-      <obj_property name="ElementShortName">PC_id_out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_id_out[31:0]</obj_property>
+   <wvobject fp_name="/DataPath_tb/DUT/PC_EX" type="array">
+      <obj_property name="ElementShortName">PC_EX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_EX[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/DataPath_tb/DUT/ID_EX_stage/PC_EX_out" type="array">
-      <obj_property name="ElementShortName">PC_EX_out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_EX_out[31:0]</obj_property>
+   <wvobject fp_name="/DataPath_tb/DUT/PC_MEM" type="array">
+      <obj_property name="ElementShortName">PC_MEM[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_MEM[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/DataPath_tb/DUT/EX_MEM_stage/PC_MEM_out" type="array">
-      <obj_property name="ElementShortName">PC_MEM_out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_MEM_out[31:0]</obj_property>
+   <wvobject fp_name="/DataPath_tb/DUT/PC_WB" type="array">
+      <obj_property name="ElementShortName">PC_WB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_WB[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/DataPath_tb/DUT/MEM_WB_stage/PC_WB_out" type="array">
-      <obj_property name="ElementShortName">PC_WB_out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_WB_out[31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject fp_name="/DataPath_tb/DUT/RAM/writeEn" type="logic">
-      <obj_property name="ElementShortName">writeEn</obj_property>
-      <obj_property name="ObjectShortName">writeEn</obj_property>
-   </wvobject>
-   <wvobject fp_name="/DataPath_tb/DUT/RAM/readEn" type="logic">
-      <obj_property name="ElementShortName">readEn</obj_property>
-      <obj_property name="ObjectShortName">readEn</obj_property>
-   </wvobject>
-   <wvobject fp_name="/DataPath_tb/DUT/RAM/Address" type="array">
-      <obj_property name="ElementShortName">Address[7:0]</obj_property>
-      <obj_property name="ObjectShortName">Address[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/DataPath_tb/DUT/RAM/dataIn" type="array">
-      <obj_property name="ElementShortName">dataIn[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dataIn[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/DataPath_tb/DUT/RAM/dataOut" type="array">
-      <obj_property name="ElementShortName">dataOut[31:0]</obj_property>
-      <obj_property name="ObjectShortName">dataOut[31:0]</obj_property>
+   <wvobject fp_name="/DataPath_tb/DUT/RFILE/registers" type="array">
+      <obj_property name="ElementShortName">registers[0:31][31:0]</obj_property>
+      <obj_property name="ObjectShortName">registers[0:31][31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/DataPath_tb/DUT/RAM/MEM" type="array">
       <obj_property name="ElementShortName">MEM[255:0][7:0]</obj_property>
       <obj_property name="ObjectShortName">MEM[255:0][7:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/DataPath_tb/DUT/ALU/operator1" type="array">
+      <obj_property name="ElementShortName">operator1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operator1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DataPath_tb/DUT/ALU/operator2" type="array">
+      <obj_property name="ElementShortName">operator2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">operator2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DataPath_tb/DUT/ALU/result" type="array">
+      <obj_property name="ElementShortName">result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">result[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DataPath_tb/DUT/forw_unit/EX_MEM_destinyReg" type="array">
+      <obj_property name="ElementShortName">EX_MEM_destinyReg[4:0]</obj_property>
+      <obj_property name="ObjectShortName">EX_MEM_destinyReg[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DataPath_tb/DUT/forw_unit/MEM_WB_destinyReg" type="array">
+      <obj_property name="ElementShortName">MEM_WB_destinyReg[4:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_WB_destinyReg[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DataPath_tb/DUT/forw_unit/EX_MEM_WriteReg" type="logic">
+      <obj_property name="ElementShortName">EX_MEM_WriteReg</obj_property>
+      <obj_property name="ObjectShortName">EX_MEM_WriteReg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DataPath_tb/DUT/forw_unit/MEM_WB_WriteReg" type="logic">
+      <obj_property name="ElementShortName">MEM_WB_WriteReg</obj_property>
+      <obj_property name="ObjectShortName">MEM_WB_WriteReg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DataPath_tb/DUT/forw_unit/ID_EX_ReadReg1" type="array">
+      <obj_property name="ElementShortName">ID_EX_ReadReg1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_ReadReg1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DataPath_tb/DUT/forw_unit/ID_EX_ReadReg2" type="array">
+      <obj_property name="ElementShortName">ID_EX_ReadReg2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">ID_EX_ReadReg2[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DataPath_tb/DUT/forw_unit/forwardA" type="array">
+      <obj_property name="ElementShortName">forwardA[1:0]</obj_property>
+      <obj_property name="ObjectShortName">forwardA[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/DataPath_tb/DUT/forw_unit/forwardB" type="array">
+      <obj_property name="ElementShortName">forwardB[1:0]</obj_property>
+      <obj_property name="ObjectShortName">forwardB[1:0]</obj_property>
    </wvobject>
 </wave_config>

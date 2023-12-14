@@ -13,7 +13,6 @@ entity Data_Mem is
     port (
         clk     :in std_logic;
         writeEn :in std_logic;
-        readEn  :in std_logic;
         Address :in std_logic_vector(7 downto 0);
         dataIn  :in std_logic_vector(31 downto 0);
         dataOut :out std_logic_vector(31 downto 0)
@@ -25,7 +24,7 @@ architecture arch_Data_Mem of Data_Mem is
     type RAM is array (255 downto 0) of std_logic_vector(7 downto 0);
     signal MEM : RAM := (others => (others => '0'));
 begin
-    process(clk)
+process(clk)
     begin
     if rising_edge(clk) then
         if (writeEn = '1') then
@@ -33,13 +32,11 @@ begin
             MEM(conv_integer(Address+1)) <= dataIn(15 downto 8);
             MEM(conv_integer(Address+2)) <= dataIn(23 downto 16);
             MEM(conv_integer(Address+3)) <= dataIn(31 downto 24);
-        elsif (readEn = '1') then
-            dataOut(7 downto 0)   <= MEM(conv_integer(Address));
-            dataOut(15 downto 8)  <= MEM(conv_integer(Address+1));
-            dataOut(23 downto 16) <= MEM(conv_integer(Address+2));
-            dataOut(31 downto 24) <= MEM(conv_integer(Address+3));
         end if;
     end if;
     end process;
-
+    
+    dataOut <= MEM(conv_integer(Address+3)) & MEM(conv_integer(Address+2)) &
+               MEM(conv_integer(Address+1)) & MEM(conv_integer(Address));
+               
 end arch_Data_Mem ; -- arch_Data_Mem

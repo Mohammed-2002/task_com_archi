@@ -224,7 +224,6 @@ architecture arch_DataPath of DataPath is
         port (
             clk     :in std_logic;
             writeEn :in std_logic;
-            readEn  :in std_logic;
             Address :in std_logic_vector(7 downto 0);
             dataIn  :in std_logic_vector(31 downto 0);
             dataOut :out std_logic_vector(31 downto 0)
@@ -348,7 +347,7 @@ architecture arch_DataPath of DataPath is
     signal destinyReg_MEM_IN                                    : std_logic_vector(4 downto 0);
     
     signal dataIn                                               : std_logic_vector(31 downto 0);    --alu result and data in to memory
-    signal memRead, memWrite                                    : std_logic;
+    signal memWrite, MemRead                                    : std_logic;
 
     signal dataOut, result                                      : std_logic_vector(31 downto 0);    --data from memory
     signal dataForReg                                           : std_logic_vector(31 downto 0);    --data to be written in register File
@@ -563,7 +562,7 @@ begin
     Mux4: Mux port map (muxIn0 => mulOutLower, muxIn1 => mulOutUpper, selector => halfselect, muxOut => resultMul_EX_IN);
     
     RAM: Data_Mem port map (clk => clk, writeEn => MemWrite, Address => result_MEM_IN(7 downto 0),
-     dataIn => dataIn, dataOut => DataOut_MEM_in, readEn => MemRead);
+     dataIn => dataIn, dataOut => DataOut_MEM_in);
 
     BRControl: Branch_Control port map (branch => Branch, signo => signo,
      zero => zero,PCSrc => PCSrc);

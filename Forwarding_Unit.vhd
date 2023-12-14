@@ -50,42 +50,38 @@ end Forwarding_Unit;
 architecture Behavioral of Forwarding_Unit is
 
 begin
-        process(EX_MEM_destinyReg, MEM_WB_destinyReg,
-                ID_EX_ReadReg1, ID_EX_ReadReg2, EX_MEM_WriteReg,
+  forwardAprc:  process(EX_MEM_destinyReg, MEM_WB_destinyReg,
+                ID_EX_ReadReg2, EX_MEM_WriteReg,
                 MEM_WB_WriteReg)
-        begin
-            if EX_MEM_WriteReg = '1' and EX_MEM_destinyReg /= "00000" then
-                   if  EX_MEM_destinyReg = ID_EX_ReadReg1 then
-            
-                        forwardA <= "01";
-                        forwardB <= "00";
-                        
-                    elsif EX_MEM_destinyReg = ID_EX_ReadReg2 then
-                        
-                        forwardA <= "00";
-                        forwardB <= "01";
-                   
-                    else
+                begin
+                    if EX_MEM_WriteReg = '1' and EX_MEM_destinyReg /= "00000" and EX_MEM_destinyReg = ID_EX_ReadReg2 then
                     
-                       forwardA <= "00";
-                       forwardB <= "00"; 
-                    end if;                       
-            elsif MEM_WB_WriteReg = '1' and MEM_WB_destinyReg /= "00000" then                 
-                if MEM_WB_destinyReg = ID_EX_ReadReg1 then
-                    
-                    forwardA <= "11";
-                    forwardB <= "00";
-                    
-                elsif MEM_WB_destinyReg = ID_EX_ReadReg2 then
-                    
-                    forwardA <= "00";
-                    forwardB <= "11";
-                    
-                end if;
-            end if;
-       
-     end process ;     
+                                forwardB <= "01";
+                                
+                    elsif MEM_WB_WriteReg = '1' and MEM_WB_destinyReg /= "00000" and MEM_WB_destinyReg = ID_EX_ReadReg2  then
+                                
+                                forwardB <= "10";
+                    else 
+                                
+                                forwardB <= "00";
+                    end if;
+                end process ;
                 
-        
-
+   forwardBprc: process(EX_MEM_destinyReg, MEM_WB_destinyReg,
+                ID_EX_ReadReg1, EX_MEM_WriteReg,
+                MEM_WB_WriteReg)
+                begin
+                    if EX_MEM_WriteReg = '1' and EX_MEM_destinyReg /= "00000" and EX_MEM_destinyReg = ID_EX_ReadReg1 then
+                    
+                                forwardA <= "01";
+                                
+                    elsif MEM_WB_WriteReg = '1' and MEM_WB_destinyReg /= "00000" and MEM_WB_destinyReg = ID_EX_ReadReg1  then
+                                
+                                forwardA <= "10";
+                    else 
+                                
+                                forwardA <= "00";
+                    end if;
+                end process ;    
+                
 end Behavioral;
